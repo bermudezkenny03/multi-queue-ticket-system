@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Panel</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="title">Panel de Atención</div>
+
+      <div class="card">
+        <button class="button A" onclick="generar('A')">Normal</button>
+        <button class="button B" onclick="generar('B')">Preferencial</button>
+        <button class="button C" onclick="generar('C')">VIP</button>
+      </div>
+
+      <div class="card">
+        <button class="button" onclick="siguiente()">Llamar siguiente</button>
+      </div>
+
+      <div class="card">
+        <h3>Turnos</h3>
+        <div id="lista" class="lista"></div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+
+    <script>
+      cargar();
+      setInterval(cargar, 3000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+services:
+  backend:
+    build: ./turno-service
+    container_name: turno_app
+    ports:
+      - "8002:80"
+    volumes:
+      - ./turno-service:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - net
+  db:
+    image: mysql:8.0
+    container_name: turno_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: turno_db
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql # persistencia
+    networks:
+      - net
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_app
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html # HOT RELOAD
+    networks:
+      - net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: laravel
+      PMA_PASSWORD: secret
+    depends_on:
+      - db
+    networks:
+      - net
+
+volumes:
+  db_data:
+
+networks:
+  net:
+    driver: bridge
