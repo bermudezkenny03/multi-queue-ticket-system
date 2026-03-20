@@ -45,7 +45,7 @@ El backend sigue una arquitectura limpia basada en:
 ### 1. Clonar repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/multi-queue-ticket-system.git
+git clone https://github.com/bermudezkenny03/multi-queue-ticket-system.git
 cd multi-queue-ticket-system
 ```
 
