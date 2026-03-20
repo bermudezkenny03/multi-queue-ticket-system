@@ -40,5 +40,16 @@ El backend sigue una arquitectura limpia basada en:
 
 ---
 
-## 📁 Estructura del Proyecto
+## ⚙️ Instalación
+
+### 1. Clonar repositorio
+
+```bash
+git clone https://github.com/tu-usuario/multi-queue-ticket-system.git
+cd multi-queue-ticket-system
+```
+
+
+
+
 
